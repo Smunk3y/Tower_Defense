@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/GAMEV1.unity
+- path: C:/Users/micro/Desktop/Tower_Defense/Assets/GAMEV1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
