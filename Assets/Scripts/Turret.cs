@@ -34,11 +34,15 @@ public class Turret : MonoBehaviour
                 shortestDistance = distanceToEnemy; 
                 nearestEnemy = enemy;
             }
+            
         }
 
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+        }else
+        {
+            target = null;
         }
 
     }
