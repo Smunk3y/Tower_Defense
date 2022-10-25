@@ -14,22 +14,34 @@ public class Node : MonoBehaviour
 
     private Renderer rend;
 
+    public GameObject mgrInstance;
+
     void Start()
     {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
     }
 
+    private void Update()
+    {
+        if (BuildManager.Instance == null)
+        {
+            Instantiate(mgrInstance);
+            Debug.LogError("NO BUILD MANAGER");
+        }
+    }
+
     void OnMouseDown()
     {
         if (turret != null)
         {
-            Debug.Log("Cant built There TODO : DISPLAY ON SCREEN");
+            Debug.LogError("Cant built There TODO : DISPLAY ON SCREEN");
             return;
         }
 
-        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOff, transform.rotation);
+        GameObject turretToBuild = BuildManager.Instance.GetTurretToBuild();
+        turret = Instantiate(turretToBuild, transform.position + positionOff, transform.rotation);
+        BuildManager.Instance.turrets.Add(turret);
     }
 
     void OnMouseEnter()

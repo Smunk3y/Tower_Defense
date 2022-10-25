@@ -1,20 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-    public static BuildManager instance;
-
-    void Awake()
+    public static BuildManager Instance { get; private set; }
+    private void Awake()
     {
-        if(instance != null)
-        {
-            Debug.LogError("More Than one BuildManager in Scene!");
-            return;
-        }
-
-        instance = this;
+        Debug.Log("Mgr start");
+        Instance = this;
     }
 
     public GameObject standardTurretPrefab;
@@ -32,5 +27,12 @@ public class BuildManager : MonoBehaviour
         return turretTobuild;
     }
 
+    public List<GameObject> turrets;
 
+    private void OnGUI()
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Label($"Turret Count: {turrets.Count}");
+        GUILayout.EndHorizontal();
+    }
 }

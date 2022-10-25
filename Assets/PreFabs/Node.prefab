@@ -113,3 +113,4 @@ MonoBehaviour:
   hoverColor: {r: 0.1273585, g: 0.8579089, b: 1, a: 0}
   startColor: {r: 0, g: 0, b: 0, a: 0}
   positionOff: {x: 0, y: 0.5, z: 0}
+  mgrInstance: {fileID: 2373386789001451550, guid: cd14e254148d70a46a103be054aea436, type: 3}
